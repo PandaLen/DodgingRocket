@@ -13,6 +13,7 @@ function centerCanvas() {
 function setup() {
     canvas = createCanvas(1280, 720);
     rocket = new Rocket(50, height / 2 - 35);
+    hitSound.setVolume(0.4);
 }
 
 function draw() {
@@ -30,6 +31,7 @@ function draw() {
             if (hp > 0) {
                 hp--;
                 console.log(hp);
+                hitSound.play();
             }
         }
         if (asteroid.x < -150) {
@@ -38,3 +40,4 @@ function draw() {
         }
     });
 }
+

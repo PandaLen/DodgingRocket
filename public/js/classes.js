@@ -1,8 +1,12 @@
 let rocketSprite, asteroidSprite;
+let hitSound, explosion;
 
 function preload() {
   rocketSprite = loadImage("../img/rocket.png");
   asteroidSprite = loadImage("../img/meteor.png");
+
+  hitSound = loadSound("../audio/hit.wav");
+  explosion = loadSound("../audio/explosion.wav");
 }
 
 class Rocket {
