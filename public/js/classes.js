@@ -31,23 +31,24 @@ class Rocket {
   draw() {
     rect(this.x, this.y, this.w, this.h);
     noFill();
+    noStroke();
     image(rocketSprite.get(0, 0, this.w, this.h), this.x, this.y);
 
     // Pohyb nahoru
     if (keyIsDown(87)) {
-      if (this.y > 0) this.y -= 7;
+      if (this.y > 0) this.y -= 9;
     }
     // Pohyb doprava
     if (keyIsDown(68)) {
-      if (this.x < width - this.w) this.x += 7;
+      if (this.x < width - this.w) this.x += 9;
     }
     // Pohyb dolů
     if (keyIsDown(83)) {
-      if (this.y < height - this.h) this.y += 7;
+      if (this.y < height - this.h) this.y += 9;
     }
     // Pohyb doleva
     if (keyIsDown(65)) {
-      if (this.x > 0) this.x -= 7;
+      if (this.x > 0) this.x -= 9;
     }
   }
 }
@@ -55,7 +56,7 @@ class Rocket {
 class Asteroid {
   constructor() {
     this.size = 130;
-    this.y = random(this.size, height - this.size);
+    this.y = random(0, height - this.size);
     this.x = width + 100;
     this.speed = random(5, 10);
   }
@@ -65,6 +66,7 @@ class Asteroid {
   draw() {
     rect(this.x, this.y, this.size, this.size);
     this.move();
+    noStroke();
     image(asteroidSprite.get(0, 0, this.size, this.size), this.x, this.y);
   }
 }

@@ -1,8 +1,13 @@
 let canvas, rocket;
 let time = 0;
-let score = 0;
-let hp = 3;
+let scoreCount = 0;
+let hpCount = 3;
 let asteroids = [];
+
+let gameConfig = {
+    ingame: true,
+
+}
 
 function centerCanvas() {
     x = (windowWidth - width) / 2;
@@ -14,30 +19,42 @@ function setup() {
     canvas = createCanvas(1280, 720);
     rocket = new Rocket(50, height / 2 - 35);
     hitSound.setVolume(0.4);
+    explosion.setVolume(0.4);
+    document.getElementById('score').innerHTML = `Score: ${scoreCount}`;
+    document.getElementById('hp').innerHTML = `HP: ${hpCount}`;
 }
 
 function draw() {
     centerCanvas();
-    time++;
-    canvas.background(color(0, 0, 0));
-    rocket.draw();
-    if (time % 50 == 0) {
-        asteroids.push(new Asteroid());
-    }
-    asteroids.forEach(function (asteroid, index, array) {
-        asteroid.draw();
-        if (rocket.detectCollision(asteroid)) {
-            array.splice(index, 1);
-            if (hp > 0) {
-                hp--;
-                console.log(hp);
-                hitSound.play();
+    if (gameConfig.ingame) {
+        time++;
+        canvas.background(color(0, 0, 0));
+        rocket.draw();
+        if (time % 30 == 0) {
+            asteroids.push(new Asteroid());
+        }
+        asteroids.forEach(function (asteroid, index, array) {
+            asteroid.draw();
+            if (rocket.detectCollision(asteroid)) {
+                array.splice(index, 1);
+                if (hpCount > 0) {
+                    hpCount--;
+                    console.log(hp);
+                    hitSound.play();
+                    document.getElementById('hp').innerHTML = `<p>HP: ${hpCount}</p>`;
+                } else {
+                    explosion.play();
+                    gameConfig.ingame = false;
+                    array = [];
+                    canvas.clear();
+                }
             }
-        }
-        if (asteroid.x < -150) {
-            array.splice(index, 1);
-            score++;
-        }
-    });
+            if (asteroid.x < -150) {
+                array.splice(index, 1);
+                scoreCount++;
+                document.getElementById('score').innerHTML = `<p>Score: ${scoreCount}</p>`;
+            }
+        });
+    }
 }
 

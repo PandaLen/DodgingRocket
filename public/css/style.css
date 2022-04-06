@@ -2,6 +2,12 @@ header{
     background-color: black;
     padding: 20px;
 }
+.hp, .score{
+    font-size: 25px;
+}
+.controls{
+    font-size: 15;
+}
 body{
     background-color: #202020 !important;
     margin: 0 auto;
