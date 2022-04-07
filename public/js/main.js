@@ -1,3 +1,5 @@
+const form = document.getElementById('form');
+
 let canvas, rocket;
 let time = 0;
 let scoreCount = 0;
@@ -39,14 +41,14 @@ function draw() {
                 array.splice(index, 1);
                 if (hpCount > 0) {
                     hpCount--;
-                    console.log(hp);
                     hitSound.play();
                     document.getElementById('hp').innerHTML = `<p>HP: ${hpCount}</p>`;
                 } else {
                     explosion.play();
                     gameConfig.ingame = false;
                     array = [];
-                    canvas.clear();
+                    canvas.remove();
+                    gameOver();
                 }
             }
             if (asteroid.x < -150) {
@@ -58,3 +60,8 @@ function draw() {
     }
 }
 
+function gameOver() {
+    document.getElementById('yes').innerHTML = '<h2 class="gameOver">Game Over</h2>';
+    document.getElementById('yes').innerHTML += `<p class="score2">Score: ${scoreCount}</p>`;
+    form.style.display = 'block';
+}

@@ -8,6 +8,15 @@ header{
 .controls{
     font-size: 15;
 }
+.gameOver{
+    margin-top: 50px;
+    text-align: center;
+    font-size: 30px;
+}
+.score2{
+    font-size: 25px;
+    text-align: center;
+}
 body{
     background-color: #202020 !important;
     margin: 0 auto;
@@ -19,4 +28,10 @@ footer{
 canvas{
     display: block;
     border: white 1px solid;
+}
+#form {
+    display: none;
+}
+.formular {
+    margin-top: 15em;
 }
