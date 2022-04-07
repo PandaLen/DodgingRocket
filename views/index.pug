@@ -1,0 +1,33 @@
+html 
+    head  
+        title Game Results
+        link(rel='stylesheet' href='https://getbootstrap.com/docs/4.4/dist/css/bootstrap.min.css')
+        style
+            include style.css
+    body
+        header
+            h2.text-center.text-white #{nadpis}
+
+        main
+        table(class="table table-striped text-white container mt-5")
+            thead 
+                tr 
+                    th Player name 
+                    th Score
+                    th Date 
+                    th Time 
+            tbody 
+                each pl in players 
+                    tr 
+                        td  #{pl.player}        
+                        td  #{pl.score}
+                        td  #{pl.date}
+                        td  #{pl.time}
+
+        footer.fixed-bottom
+            p.float-right.text-white
+                a(href="/") Back to game
+            p.text-center.text-white &copy; Lukáš Kanovský 2022
+
+        script(src='https://code.jquery.com/jquery-3.4.1.slim.min.js')
+        script(src='https://getbootstrap.com/docs/4.4/dist/js/bootstrap.bundle.min.js')

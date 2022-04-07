@@ -1,37 +1,44 @@
-header{
+header {
     background-color: black;
     padding: 20px;
 }
-.hp, .score{
+
+.hp, .score {
     font-size: 25px;
 }
-.controls{
+
+.controls {
     font-size: 15;
 }
-.gameOver{
-    margin-top: 50px;
-    text-align: center;
+
+.gameOver {
+    margin-top: 70px;
     font-size: 30px;
 }
-.score2{
+
+.score2 {
     font-size: 25px;
-    text-align: center;
 }
-body{
+
+body {
     background-color: #202020 !important;
     margin: 0 auto;
 }
-footer{
+
+footer {
     background-color: black;
     padding: 20px;
 }
-canvas{
+
+canvas {
     display: block;
     border: white 1px solid;
 }
+
 #form {
     display: none;
 }
+
 .formular {
-    margin-top: 15em;
+    margin-top: 7em;
 }

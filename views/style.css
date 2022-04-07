@@ -1,0 +1,22 @@
+header{
+    background-color: black;
+    padding: 20px;
+}
+
+body{
+    background-color: #202020;
+    margin: 0 auto;
+}
+
+a{
+    color: white;
+}
+
+a:hover{
+    color: rgb(211, 211, 211);
+}
+
+footer {
+    background-color: black;
+    padding: 20px;
+}

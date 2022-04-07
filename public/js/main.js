@@ -1,4 +1,5 @@
 const form = document.getElementById('form');
+const scoreForm = document.getElementById('scoreForm');
 
 let canvas, rocket;
 let time = 0;
@@ -61,7 +62,9 @@ function draw() {
 }
 
 function gameOver() {
-    document.getElementById('yes').innerHTML = '<h2 class="gameOver">Game Over</h2>';
-    document.getElementById('yes').innerHTML += `<p class="score2">Score: ${scoreCount}</p>`;
+    document.getElementById('yes').innerHTML = '<h2 class="gameOver text-center">Game Over</h2>';
+    document.getElementById('yes').innerHTML += `<p class="score2 text-center">Score: ${scoreCount}</p>`;
+    scoreForm.value = scoreCount;
+    scoreForm.style.visibility = 'hidden';
     form.style.display = 'block';
 }
